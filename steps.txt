@@ -1,0 +1,25 @@
+[NOTE: The script is written in python3, to make it work in python2.7, you need to install the Tkinter library
+and tweak the shebang in the script i.e. the first line that goes by #!/usr/bin/python3
+and change it to #!/usr/bin/python2]
+
+
+To add the GUI automation appliaction, all we had to do is copy the script to the /bin location by using
+the following command;
+
+$ sudo cp -i ~/auto-gui/auto.py /bin
+
+where *auto-gui* directory is the directory created when we clone the repository
+
+After completing the above step successfully, we have to setup a new CRON Job, for that we
+have to use the following command;
+
+$ sudo crontab -e
+
+This will ask for the administrator password and will open a text file in GnuNano,
+after scrolling to the bottom of the text file, we'll ad the following line to the text file
+and save it
+
+$ @reboot python /bin/auto.py &
+
+In the above commmand, we have to specify the path of the python script i.e. in the /bin folder and the (&) symbol
+means that this job will not alter with the boot sequence.
